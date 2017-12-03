@@ -10,35 +10,32 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Stage stage;
+	Stage stage;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-      this.stage=primaryStage;
-      mainWindow();
-    }
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		this.stage = primaryStage;
+		mainWindow();
+	}
 
-    public void mainWindow(){
+	public void mainWindow() {
 
-        FXMLLoader loader=new FXMLLoader(Main.class.getResource("sample.fxml"));
-        try {
-            AnchorPane pane=loader.load();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/sample.fxml"));
+		try {
+			AnchorPane pane = loader.load();
 
-            Scene scene=new Scene(pane);
-            scene.getStylesheets().addAll(Main.class.getResource("style.css").toExternalForm());
-            stage.setScene(scene);
-            stage.show();
+			Scene scene = new Scene(pane);
+			scene.getStylesheets().addAll(getClass().getResource("../view/style.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-    }
+	}
 
-
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
